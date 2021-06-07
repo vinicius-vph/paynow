@@ -1,0 +1,5 @@
+example_id                                            | status | run_time        |
+----------------------------------------------------- | ------ | --------------- |
+./spec/models/admin_spec.rb[1:1]                      | passed | 0.00878 seconds |
+./spec/system/admin/account_management_spec.rb[1:1:1] | failed | 0.6511 seconds  |
+./spec/system/visitor_visit_homepage_spec.rb[1:1]     | passed | 0.0178 seconds  |
