@@ -3,7 +3,7 @@
   <head>
     <title>Paynow</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link rel="icon" href="public/favicon.png" />
+    <link rel="icon" href="./public/favicon.png" />
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -13,20 +13,21 @@
 
   <body>
     <nav class="navbar navbar-light d-flex justify-content-around" style="height:12vh;">
-      <h1 style="text-align:center;" class="text-center">Bem vindo ao PayNow</h1>
+      <h1 style="text-align:center;" class="text-center">Área do Administrador</h1>
 
       <div class="">
-          <button class="btn btn-primary me-md-2" type="button">Entrar</button>
-          <button class="btn btn-success" type="button">Crie sua conta</button>
+        <% if admin_signed_in? %>
+          <span><%= current_admin.email %></span>
+          <a href=<%= destroy_admin_session_path %>>Sair</a>
+        <% end %>
       </div>
     </nav>
-
     <article class="container text-center" style="height:83vh">
       <%= yield %>
     </article>
-
-    <footer class="d-grid gap-2 d-md-flex justify-content-md-end" style="height:5vh">
-      <%= link_to 'Área do admin', new_admin_session_path, method: :get, class: "btn btn-outline-primary", style: "" %>
+    
+    <footer class="" style="height:5vh">
+      <p>Paynow</p>
     </footer>
   </body>
 </html>
