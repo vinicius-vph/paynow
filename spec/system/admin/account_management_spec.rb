@@ -1,24 +1,72 @@
 require 'rails_helper'
 
 describe 'Account Management' do
-
-    context "Registration" do
-        it '- Should be able create an admin account' do
-            Admin.create!(email: 'admin_one@paynow.com', password: '123mudar')
+    context "Sign in" do
+        it '- Should be able create and access an admin account' do
+            admin = Admin.create!(email: 'admin_one@paynow.com.br', password: '123mudar')
             
             visit root_path
             click_on 'Área do admin'
-            fill_in 'Email', with: 'admin_one@paynow.com'
+            fill_in 'Email', with: 'admin_one@paynow.com.br'
             fill_in 'Senha', with: '123mudar'
-            click_on 'Entrar'
+            within 'form' do
+                click_on 'Entrar'
+            end
             
             expect(page).to have_text('Login efetuado com sucesso')
-            expect(page).to_not have_link('Sair')
+            expect(page).to have_text(admin.email)
+            expect(page).to have_link('Sair')
             expect(page).to_not have_css('p', text: 'Receba pagamentos, e resolva suas finanças em um só lugar')
             expect(page).to_not have_css('p', text: 'Venda com mais meios de pagamento e tenha seu dinheiro na hora')
             
         end
+
+        it '- Should not be able access an admin account with invalid password' do
+            admin = Admin.create!(email: 'admin_one@paynow.com.br', password: '123mudar')
+            
+            visit root_path
+            click_on 'Área do admin'
+            fill_in 'Email', with: 'admin_one@paynow.com.br'
+            fill_in 'Senha', with: '1234567'
+            within 'form' do
+                click_on 'Entrar'
+            end
+            
+            expect(page).to_not have_text('Login efetuado com sucesso')
+            expect(page).to_not have_text(admin.email)
+            expect(page).to_not have_link('Sair')
+            expect(page).to have_text('senha inválida')
+        end
+
+        it '- Should not be able access an admin account with invalid email domain' do
+            admin = Admin.create!(email: 'admin_one@paynow.com.br', password: '123mudar')
+            
+            visit root_path
+            click_on 'Área do admin'
+            fill_in 'Email', with: 'admin_one@gmail.com'
+            fill_in 'Senha', with: '123mudar'
+            within 'form' do
+                click_on 'Entrar'
+            end
+            
+            expect(page).to_not have_text('Login efetuado com sucesso')
+            expect(page).to_not have_text(admin.email)
+            expect(page).to_not have_link('Sair')
+            expect(page).to have_text('Email ou senha inválida')
+        end
     end
 
-
+    context "Sign out" do
+        xit '- Should be able sign out the admin' do
+            admin_one_login
+            
+            click_on 'Sair'
+      
+            expect(page).to have_text('Saiu com sucesso')
+            expect(page).to_not have_text('admin_one@paynow.com.br')
+            expect(page).to have_link('Área do admin')
+            expect(page).to_not have_link('Sair')
+            expect(current_path).to eq(root_path)
+        end
+    end
 end

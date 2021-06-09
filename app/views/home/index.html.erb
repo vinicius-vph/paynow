@@ -1,2 +1,6 @@
-<p>Receba pagamentos, e resolva suas finanças em um só lugar</p>
-<p>Venda com mais meios de pagamento e tenha seu dinheiro na hora</p>
+<% if admin_signed_in? %>
+
+<% else %>
+    <p>Receba pagamentos, e resolva suas finanças em um só lugar</p>
+    <p>Venda com mais meios de pagamento e tenha seu dinheiro na hora</p>
+<% end %>

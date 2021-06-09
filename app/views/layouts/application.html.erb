@@ -22,6 +22,12 @@
     </nav>
 
     <article class="container text-center" style="height:83vh">
+      <% if notice %>
+        <p><%= notice %></p>
+      <% end %>
+      <% if alert %>
+        <p><%= alert %></p>
+      <% end %>
       <%= yield %>
     </article>
 
