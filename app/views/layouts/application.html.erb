@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Paynow</title>
+    <title>Paynow | Pagamentos digitais</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="icon" href="favicon.ico" />
     <%= csrf_meta_tags %>
@@ -12,16 +12,14 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-light d-flex justify-content-around" style="height:12vh;">
-      <h1 style="text-align:center;" class="text-center">Bem vindo ao PayNow</h1>
-
-      <div class="">
-          <button class="btn btn-primary me-md-2" type="button">Entrar</button>
-          <button class="btn btn-success" type="button">Crie sua conta</button>
+    <nav class="navbar navbar-light d-flex justify-content-center" style="height:12vh;background: linear-gradient(600deg,#28a745 1%, #20c997);">
+      <h1 style="text-align:center;" class="h1">Bem vindo ao PayNow</h1>
+      <div class="" style="margin-left:10%;position:absolute;right:2%;">
+          <button class="btn btn-primary me-md-2" type="button">Login</button>
       </div>
     </nav>
 
-    <article class="container text-center" style="height:83vh">
+    <main class="container text-center" style="height:83vh">
       <% if notice %>
         <p><%= notice %></p>
       <% end %>
@@ -29,10 +27,11 @@
         <p><%= alert %></p>
       <% end %>
       <%= yield %>
-    </article>
+    </main>
 
-    <footer class="d-grid gap-2 d-md-flex justify-content-md-end" style="height:5vh">
-      <%= link_to 'Área do admin', new_admin_session_path, method: :get, class: "btn btn-outline-primary", style: "" %>
+    <footer class="navbar d-flex justify-content-center" style="height:40px;background: linear-gradient(600deg,#28a745 1%, #20c997);">
+      <p style="text-align:center;margin:0;font-size:.7rem">Copyright ©2021 All rights reserved | Paynow Brasil</p>
+        <%= link_to 'Área do admin', new_admin_session_path, method: :get, class: "btn btn-outline-danger", style: "position: absolute;right:0;font-size:.7rem" %>
     </footer>
   </body>
 </html>
