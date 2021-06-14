@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe 'Account Management' do
-    context "Sign in" do
+    context "Login" do
         it '- Should be able create and access an admin account' do
             admin = Admin.create!(email: 'admin_one@paynow.com.br', password: '123mudar')
             
@@ -15,9 +15,13 @@ describe 'Account Management' do
             
             expect(page).to have_text('Login efetuado com sucesso')
             expect(page).to have_text(admin.email)
-            expect(page).to have_link('Sair')
+            expect(page).to have_button('Sair')
+            expect(page).to have_link('Meios de pagamentos')
+            expect(page).to have_link('Gerenciar clientes')
             expect(page).to_not have_css('p', text: 'Receba pagamentos, e resolva suas finanças em um só lugar')
             expect(page).to_not have_css('p', text: 'Venda com mais meios de pagamento e tenha seu dinheiro na hora')
+            expect(page).to_not have_link('Login')
+            expect(page).to_not have_text('Área do admin')
             
         end
 
@@ -56,12 +60,20 @@ describe 'Account Management' do
         end
     end
 
-    context "Sign out" do
-        xit '- Should be able sign out the admin' do
-            admin_one_login
+    context "Logout" do
+        it '- Should be able sign out the admin' do
+            admin = Admin.create!(email: 'admin_one@paynow.com.br', password: '123mudar')
+            
+            visit root_path
+            click_on 'Área do admin'
+            fill_in 'Email', with: 'admin_one@paynow.com.br'
+            fill_in 'Senha', with: '123mudar'
+            within 'form' do
+                click_on 'Entrar'
+            end
             
             click_on 'Sair'
-      
+
             expect(page).to have_text('Saiu com sucesso')
             expect(page).to_not have_text('admin_one@paynow.com.br')
             expect(page).to have_link('Área do admin')

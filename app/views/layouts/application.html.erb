@@ -13,10 +13,18 @@
 
   <body>
     <nav class="navbar navbar-light d-flex justify-content-center" style="height:12vh;background: linear-gradient(600deg,#28a745 1%, #20c997);">
-      <h1 style="text-align:center;" class="h1">Bem vindo ao PayNow</h1>
-      <div class="" style="margin-left:10%;position:absolute;right:2%;">
-          <button class="btn btn-primary me-md-2" type="button">Login</button>
-      </div>
+      <% if admin_signed_in? %>
+        <h1 style="text-align:center;" class="h1">Área do Administrador</h1>
+        <div class="d-flex justify-content-center align-items-center" style="height:100%;position:absolute;right:0;">
+          <p style="font-size:.7rem;margin:0"><%= current_admin.email %></p>
+          <%= button_to "Sair", destroy_admin_session_path, type: :button, method: :delete, class: "btn btn-danger", style:"font-size:.7rem;margin-left:.5rem" %>
+        </div>
+      <% else %>
+        <h1 style="text-align:center;" class="h1">Bem vindo ao PayNow</h1>
+        <div style="margin-left:10%;position:absolute;right:2%;">
+            <button class="btn btn-primary me-md-2" type="button">Login</button>
+        </div>
+      <% end %>
     </nav>
 
     <main class="container text-center" style="height:83vh">
@@ -31,7 +39,9 @@
 
     <footer class="navbar d-flex justify-content-center" style="height:40px;background: linear-gradient(600deg,#28a745 1%, #20c997);">
       <p style="text-align:center;margin:0;font-size:.7rem">Copyright ©2021 All rights reserved | Paynow Brasil</p>
-        <%= link_to 'Área do admin', new_admin_session_path, method: :get, class: "btn btn-outline-danger", style: "position: absolute;right:0;font-size:.7rem" %>
+        <% unless admin_signed_in? %>
+          <%= link_to 'Área do admin', new_admin_session_path, method: :get, class: "btn btn-outline-danger", style: "position: absolute;right:0;font-size:.7rem" %>
+        <% end %>
     </footer>
   </body>
 </html>
