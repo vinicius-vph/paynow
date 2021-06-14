@@ -1,4 +1,4 @@
 class PaymentMethod < ApplicationRecord
-    enum status: { disabled: 0, activated: 1 }
-    enum type: { pix: 0, boleto: 1, cartao: 2  }
+    enum status: { inativo: 0, ativo: 1 }
+    enum payment_type: { pix: 0, boleto_bancario: 1, cartao_de_credito: 2  }
 end
