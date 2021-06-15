@@ -16,7 +16,8 @@ describe 'Account Management' do
             expect(page).to have_text('Login efetuado com sucesso')
             expect(page).to have_text(admin.email)
             expect(page).to have_button('Sair')
-            expect(page).to have_link('Meios de pagamentos')
+            expect(page).to have_text('Dashboard')
+            expect(page).to have_link('Meios de pagamento')
             expect(page).to have_link('Gerenciar clientes')
             expect(page).to_not have_css('p', text: 'Receba pagamentos, e resolva suas finanças em um só lugar')
             expect(page).to_not have_css('p', text: 'Venda com mais meios de pagamento e tenha seu dinheiro na hora')
@@ -61,7 +62,7 @@ describe 'Account Management' do
     end
 
     context "Logout" do
-        it '- Should be able sign out the admin' do
+        it '- Should be able sign out the admin account' do
             admin = Admin.create!(email: 'admin_one@paynow.com.br', password: '123mudar')
             
             visit root_path

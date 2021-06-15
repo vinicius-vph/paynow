@@ -1,0 +1,32 @@
+---
+pt-BR:
+  admin:
+    payment_methods:
+      new:
+        name: 'Nome'
+        payment_fee: 'Taxa por Cobrança'
+        max_pay_fee: 'Taxa Máxima em R$'
+        status: 'Status'
+        payment_type: 'Tipo de Pagamento'
+        submit: 'Enviar'
+      create:
+        success: "Criado com sucesso"
+      edit:
+        name: 'Nome'
+        payment_fee: 'Taxa por Cobrança'
+        max_pay_fee: 'Taxa Máxima em R$'
+        status: 'Status'
+        payment_type: 'Tipo de Pagamento'
+        submit: 'Atualizar'
+      update:
+        success: "Atualizado com sucesso"
+      destroy:
+        success: "Apagado com sucesso!"
+  activerecord:
+    attributes:
+      payment_method:
+        name: 'Nome'
+        payment_fee: 'Taxa por Cobrança'
+        max_pay_fee: 'Taxa Máxima em R$'
+        payment_type: 'Tipo de Pagamento'
+        status: 'Status'

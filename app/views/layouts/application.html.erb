@@ -14,7 +14,9 @@
   <body>
     <nav class="navbar navbar-light d-flex justify-content-center" style="height:12vh;background: linear-gradient(600deg,#28a745 1%, #20c997);">
       <% if admin_signed_in? %>
-        <h1 style="text-align:center;" class="h1">Área do Administrador</h1>
+        <a href="<%= admin_root_path %>">
+          <h1 style="text-align:center;" class="h1">Área do Administrador</h1>
+        </a>
         <div class="d-flex justify-content-center align-items-center" style="height:100%;position:absolute;right:0;">
           <p style="font-size:.7rem;margin:0"><%= current_admin.email %></p>
           <%= button_to "Sair", destroy_admin_session_path, type: :button, method: :delete, class: "btn btn-danger", style:"font-size:.7rem;margin-left:.5rem" %>
@@ -29,10 +31,10 @@
 
     <main class="container text-center" style="height:83vh">
       <% if notice %>
-        <p><%= notice %></p>
+        <p class="alert alert-success"><%= notice %></p>
       <% end %>
       <% if alert %>
-        <p><%= alert %></p>
+        <p class="alert alert-danger"><%= alert %></p>
       <% end %>
       <%= yield %>
     </main>

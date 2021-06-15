@@ -1,16 +1,11 @@
 <div class="container d-flex flex-column" style="height:100%">
-    <h5 style="margin-top:2rem">Novo meio de pagamento</h5>
+    <h5 style="margin-top:2rem">Editar meio de pagamento</h5>
     <%= link_to "Voltar", :back %>
     <div class="d-flex flex-column align-items-center justify-content-center card" style="min-width:499px;min-height:380px;margin-top:1rem">
         <%= form_with model: [:admin, @payment_method] do |form| %>
             <dl>
                 <dt><%= form.label :name %></dt>
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="basic-addon1" style="font-size:0.7rem">Digite no formato: Código - Banco</span>
-                    </div>     
-                    <%= form.text_field :name, placeholder: "100 - Banco Laranja" %>
-                </div>
+                <dd><%= form.text_field :name, disabled: true %></dd>
 
                 <dt><%= form.label :payment_fee %></dt>
                 <dd><%= form.number_field :payment_fee, min: 0, max: 100, step: 0.1 %></dd>
@@ -19,7 +14,7 @@
                 <dd><%= form.number_field :max_pay_fee, min: 0, max: 100, step: 0.1 %></dd>
                
                 <dt><%= form.label :payment_type %></dt>
-                <dd><%= form.select :payment_type, [['Boleto', :boleto_bancario], ['Cartão', :cartao_de_credito], ['PIX', :pix]], include_blank: true %></dd>
+                <dd><%= form.text_field :payment_type, disabled: true %></dd>
 
                 <dt><%= form.label :status %></dt>
                 <dd><%= form.select :status, [['Ativo', :ativo], ['Inativo', :inativo]] %></dd>
