@@ -1,0 +1,29 @@
+---
+pt-BR:
+  admin:
+    companies:
+      edit:
+        fantasy_name: 'Nome Fantasia'
+        cnpj: 'CNPJ'
+        corporate_name: 'Razão Social'
+        billing_address: 'Endereço de cobrança'
+        billing_email: 'Email de cobrança'
+        company_admin_email: 'Email do administrador'
+        company_token: 'Token'
+        status: 'Situação cadastral'
+        submit: 'Atualizar'
+      update:
+        success: "Atualizado com sucesso"
+      destroy:
+        success: "Apagado com sucesso!"
+  activerecord:
+    attributes:
+      company:
+        fantasy_name: 'Nome Fantasia'
+        cnpj: 'CNPJ'
+        corporate_name: 'Razão Social'
+        billing_address: 'Endereço de cobrança'
+        billing_email: 'Email de cobrança'
+        company_admin_email: 'Email do administrador'
+        company_token: 'Token'
+        status: 'Situação cadastral'

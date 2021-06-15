@@ -6,5 +6,6 @@ Rails.application.routes.draw do
   namespace :admin do
     root to: 'admin#index'
     resources :payment_methods
+    resources :companies,  only: %i[index show edit update]
   end
 end
