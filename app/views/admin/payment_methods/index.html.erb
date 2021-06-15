@@ -1,11 +1,11 @@
-<div class="container d-flex flex-column" style="height:100%;">
+<div class="container" style="height:100%;">
     <h5 style="margin-top:2rem">Meios de pagamento disponiveis</h5>
     <%= link_to "Voltar", :back %>
     <%= link_to "Criar novo", new_admin_payment_method_path, class: "d-flex align-items-start" %>
    <div class="d-flex align-items-end" style="margin-top:1rem;">
-        <table class="table table-striped table-hover table-primary" style="overflow-y:scroll;">
+        <table class="table table-striped table-hover" style="overflow-y:scroll;">
               <thead>
-                <tr>
+                <tr class="table-success">
                     <th scope="col">#</th>
                     <th scope="col">Nome</th>
                     <th scope="col">Taxa por Cobrança</th>

@@ -1,16 +1,12 @@
-<div class="container d-flex flex-column align-items-center" style="height:100%">
+<div class="container" style="height:100%">
   <h5 class="" style="margin-top:2rem">Dashboard</h5>
 
-  <div class="row" style="margin-top:7rem">
+  <div class="row" style="margin-top:10rem">
     <div class="col">
       <%= link_to "Meios de pagamento", admin_payment_methods_path, class: "h5" %>
-      <a href=>
-      </a>
     </div>
     <div class="col">
-      <a href="">
-        <p class="h5">Gerenciar clientes</p>
-      </a>
+      <%= link_to "Gerenciar clientes", admin_companies_path, class: "h5" %>
     </div>
     <div class="col">
       <p class="h5">outros</p>

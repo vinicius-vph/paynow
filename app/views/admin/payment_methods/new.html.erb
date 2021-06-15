@@ -1,4 +1,4 @@
-<div class="container d-flex flex-column" style="height:100%">
+<div class="container" style="height:100%">
     <h5 style="margin-top:2rem">Novo meio de pagamento</h5>
     <%= link_to "Voltar", :back %>
     <div class="d-flex flex-column align-items-center justify-content-center card" style="min-width:499px;min-height:380px;margin-top:1rem">
@@ -24,7 +24,7 @@
                 <dt><%= form.label :status %></dt>
                 <dd><%= form.select :status, [['Ativo', :ativo], ['Inativo', :inativo]] %></dd>
             </dl>
-            <%= form.submit t('.submit'), class: 'btn btn-dark' %>
+            <%= form.submit t('.submit'), class: 'btn btn-success' %>
         <% end %>
     </div>
 </div>

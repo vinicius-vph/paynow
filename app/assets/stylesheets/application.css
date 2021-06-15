@@ -23,3 +23,17 @@ body {
 a {
    text-decoration: none;
 }
+
+.company input[type="text"]  {
+   width: 100%;
+}
+
+form {
+   width: 100%;
+}
+
+@media screen and (min-width: 800px) {
+   .company input[type="text"]  {
+      width: 60%;
+   }
+}
