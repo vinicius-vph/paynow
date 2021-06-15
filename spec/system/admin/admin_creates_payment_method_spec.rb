@@ -26,6 +26,7 @@ describe 'Admin creates payment method' do
 
         expect(page).to have_text('Criado com sucesso')
         expect(page).to have_link('Criar novo')
+        expect(page).to have_css('img[src*="pix-"]')
         expect(page).to have_content('341 - Banco Itau')
         expect(page).to have_content('20.0 %')
         expect(page).to have_content('R$ 25.0')

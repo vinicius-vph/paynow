@@ -17,11 +17,14 @@ describe 'Admin reads payment type' do
         expect(page).to have_text(admin.email)
         expect(page).to have_link('Voltar')
         expect(page).to have_link('Criar novo')
+        expect(page).to have_content('#')
         expect(page).to have_content('Nome')
         expect(page).to have_content('Taxa por Cobrança')
         expect(page).to have_content('Taxa Máxima em R$')
         expect(page).to have_content('Tipo')
         expect(page).to have_content('Status')
+        expect(page).to have_content('Editar')
+        expect(page).to have_content('Apagar')
     end
 
     it '- Should not be able reads the Admin Dashbord' do
