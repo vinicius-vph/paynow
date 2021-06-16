@@ -16,6 +16,9 @@ pt-BR:
         success: "Atualizado com sucesso"
       destroy:
         success: "Apagado com sucesso!"
+      update_token:
+        success: "Token atualizado com sucesso"
+        fail: "Não foi possível atualizar o Token"
   activerecord:
     attributes:
       company:

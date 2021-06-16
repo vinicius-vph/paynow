@@ -1,6 +1,6 @@
 class Admin::CompaniesController < Admin::AdminController
     before_action :authenticate_admin!
-    before_action :set_company, only: %i[show edit update]
+    before_action :set_company, only: %i[show edit update update_token]
 
     def index
         @companies = Company.all
@@ -21,6 +21,18 @@ class Admin::CompaniesController < Admin::AdminController
         else
             render "/admin/companies/edit", layout: "application"
         end   
+    end
+
+    def update_token
+        smartToken = SecureRandom.base58(20)
+
+        unless Company.where(company_token: smartToken).any?
+            @company.company_token = smartToken    
+            @company.save
+            redirect_to [:admin, @company], layout: "application", notice: t('.success')
+        else
+            redirect_to [:admin, @company], layout: "application", notice: t('.fail')
+        end
     end
 
     private

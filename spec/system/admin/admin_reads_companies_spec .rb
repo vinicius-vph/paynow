@@ -73,7 +73,8 @@ describe 'Admin reads companies' do
             expect(page).to have_content('Email de cobrança')
             expect(page).to have_content('Email do administrador')
             expect(page).to have_content('Situação cadastral')
-            expect(page).to have_content('Editar cadastro')
+            expect(page).to have_link('Editar cadastro')
+            expect(page).to have_button('Renovar Token')
 
         end
     end

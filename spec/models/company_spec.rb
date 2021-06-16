@@ -16,8 +16,8 @@ RSpec.describe Company, type: :model do
     it { should validate_presence_of(:billing_address) }
     it { should validate_presence_of(:billing_email) }
     it { should validate_presence_of(:company_admin_email) }
-    it { should validate_presence_of(:company_token) }
-    it { should validate_presence_of(:status) }
+    it { should_not validate_presence_of(:company_token) }
+    it { should_not validate_presence_of(:status) }
   end
 
   describe '- Validates cnpj length'do

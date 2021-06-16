@@ -22,11 +22,6 @@
                 <dt><%= form.label :company_admin_email %></dt>
                 <dd><%= form.text_field :company_admin_email %></dd>
 
-                <div class="form-check form-switch" style="width:30%;margin:1rem auto 0">
-                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" onchange="alert('Novo token gerado <%= SecureRandom.base58(20) %>')">
-                    <dt><label class="form-check-label" for="flexSwitchCheckChecked">Renovar token</label></dt>
-                </div>
-
                 <dt><%= form.label :company_token %></dt>
                 <dd><%= form.text_field :company_token, disabled: true %></dd>
 

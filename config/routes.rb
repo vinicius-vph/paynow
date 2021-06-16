@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   namespace :admin do
     root to: 'admin#index'
     resources :payment_methods
-    resources :companies,  only: %i[index show edit update]
+    resources :companies,  only: %i[index show edit update] do
+      put 'update_token', on: :member
+    end
   end
 end
