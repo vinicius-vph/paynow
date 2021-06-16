@@ -4,4 +4,5 @@ class PaymentMethod < ApplicationRecord
 
     validates :name, :payment_fee, :max_pay_fee, :payment_type, presence: true
     validates :name, uniqueness: true
+    validates :payment_fee, :max_pay_fee, numericality: { greater_than_or_equal_to: 0 }
 end
