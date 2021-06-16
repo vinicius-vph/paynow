@@ -61,7 +61,7 @@ describe 'Admin updates company' do
         click_on 'Editar cadastro'
 
         fill_in 'Nome Fantasia', with: 'Mercado do Bairro'
-        fill_in 'CNPJ', with: '12123123000102'
+        fill_in 'CNPJ', with: '12.123.123/0001-02'
         fill_in 'Razão Social', with: 'ABCD Laticínios'
         fill_in 'Endereço de cobrança', with: 'Rua Maestro Cállia - 50 - Vila Mariana - São Paulo - SP'
         fill_in 'Email de cobrança', with: 'rh@codeplay.com.br'
@@ -73,7 +73,7 @@ describe 'Admin updates company' do
         expect(page).to have_text('Atualizado com sucesso')
         expect(current_path).to eq(admin_company_path(company))
         expect(page).to have_text('Mercado do Bairro')
-        expect(page).to have_text('12123123000102')
+        expect(page).to have_text('12.123.123/0001-02')
         expect(page).to have_text('ABCD Laticínios')
         expect(page).to have_text('Rua Maestro Cállia - 50 - Vila Mariana - São Paulo - SP')
         expect(page).to have_text('rh@codeplay.com.br')
