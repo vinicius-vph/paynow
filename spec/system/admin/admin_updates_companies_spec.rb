@@ -30,8 +30,8 @@ describe 'Admin updates company' do
             expect(page).to have_content('Razão Social')
             expect(page).to have_content('CNPJ')
             expect(page).to have_content('Token')
-            expect(page).to have_content('Endereço de cobrança')
-            expect(page).to have_content('Email de cobrança')
+            expect(page).to have_content('Endereço de faturamento')
+            expect(page).to have_content('Email de faturamento')
             expect(page).to have_content('Email do administrador')
             expect(page).to have_content('Situação cadastral')
             expect(page).to have_button('Atualizar')
@@ -63,8 +63,8 @@ describe 'Admin updates company' do
             fill_in 'Nome Fantasia', with: 'Mercado do Bairro'
             fill_in 'CNPJ', with: '12.123.123/0001-02'
             fill_in 'Razão Social', with: 'ABCD Laticínios'
-            fill_in 'Endereço de cobrança', with: 'Rua Maestro Cállia - 50 - Vila Mariana - São Paulo - SP'
-            fill_in 'Email de cobrança', with: 'rh@codeplay.com.br'
+            fill_in 'Endereço de faturamento', with: 'Rua Maestro Cállia - 50 - Vila Mariana - São Paulo - SP'
+            fill_in 'Email de faturamento', with: 'rh@codeplay.com.br'
             fill_in 'Email do administrador', with: 'jonhdoe@codeplay.com.br'
             select 'Inativo', from: 'Situação cadastral'
             
