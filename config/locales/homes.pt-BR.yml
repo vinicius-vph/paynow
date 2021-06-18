@@ -1,0 +1,34 @@
+---
+pt-BR:
+  home:
+    new_register_clients:
+      email: 'Email'
+      password: 'Senha'
+      password_confirmation: 'Confirmação de Senha'
+      company_id: 'Empresa'
+      submit: 'Registrar'
+    create_register_clients:
+      success: "Seu cadastro foi criado com sucesso faça seu login para continuar"
+      fail: "Não foi possível criar o cadastro"
+    new_register_companies:
+      fantasy_name: 'Nome Fantasia'
+      cnpj: 'CNPJ'
+      corporate_name: 'Razão Social'
+      billing_address: 'Endereço de faturamento'
+      billing_email: 'Email de faturamento'
+      company_admin_email: 'Email do administrador'
+      submit: 'Registrar'
+    create_register_companies:
+        success: "Empresa Cadastrada com sucesso, agora cadastre seus dados!"
+        fail: "Não foi possível criar o cadastro"
+  activerecord:
+    attributes:
+      fantasy_name: 'Nome Fantasia'
+      cnpj: 'CNPJ'
+      corporate_name: 'Razão Social'
+      billing_address: 'Endereço de faturamento'
+      billing_email: 'Email de faturamento'
+      company_admin_email: 'Email do administrador'
+      company_token: 'Token'
+      status: 'Situação cadastral'
+      password: "Senha"

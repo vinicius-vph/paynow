@@ -22,10 +22,14 @@
           <%= button_to "Sair", destroy_admin_session_path, type: :button, method: :delete, class: "btn btn-danger", style:"font-size:.7rem;margin-left:.5rem" %>
         </div>
       <% else %>
-        <h1 style="text-align:center;" class="h1">Bem vindo ao PayNow</h1>
-        <div style="margin-left:10%;position:absolute;right:2%;">
-            <button class="btn btn-primary me-md-2" type="button">Login</button>
-        </div>
+        <a href="/">
+          <h1 style="text-align:center;" class="h1">Bem vindo ao PayNow</h1>
+        </a>
+          <% if current_page?('/')  %>
+            <div style="margin-left:10%;position:absolute;right:2%;">
+              <%= link_to 'Login', register_path, method: :get, class: "btn btn-primary me-md-2"%>
+            </div>
+          <% end %>
       <% end %>
     </nav>
 
@@ -41,8 +45,10 @@
 
     <footer class="navbar d-flex justify-content-center" style="height:40px;background: linear-gradient(600deg,#28a745 1%, #20c997);">
       <p style="text-align:center;margin:0;font-size:.7rem">Copyright ©2021 All rights reserved | Paynow Brasil</p>
-        <% unless admin_signed_in? %>
-          <%= link_to 'Área do admin', new_admin_session_path, method: :get, class: "btn btn-outline-danger", style: "position: absolute;right:0;font-size:.7rem" %>
+        <% if current_page?('/') %>
+          <% unless admin_signed_in? %>
+            <%= link_to 'Área do admin', new_admin_session_path, method: :get, class: "btn btn-outline-danger", style: "position: absolute;right:0;font-size:.7rem" %>
+          <% end %>
         <% end %>
     </footer>
   </body>

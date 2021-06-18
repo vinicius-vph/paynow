@@ -1,0 +1,23 @@
+<div class="container" style="height:100%">
+    <h5 style="margin-top:2rem">CADASTRO DE CLIENTE</h5>
+    <%#= link_to "Voltar", :back, class: "btn btn-primary btn-sm btn-warning" %>
+    <div class="d-flex flex-column align-items-center justify-content-center card company" style="width:399px;margin:1rem auto 0;font-size:0.7rem;padding:0.4rem">
+        <%= form_with model: [:register, @client] do |form| %>
+            <dl>
+                <dt><%= form.label :email %></dt>
+                <dd><%= form.email_field :email, autofocus: true, autocomplete: "email", placeholder: "usuario@seudominio.com", value: params[:domain] %></dd>
+
+                <dt><%= form.label :password %></dt>
+                <dd><%= form.password_field :password, minlength: 6, placeholder: "Mínimo 6 caracteres", autocomplete: "senha" %></dd>
+
+                <dt><%= form.label :password_confirmation %></dt>
+                <dd><%= form.password_field :password_confirmation, minlength: 6, placeholder: "Mínimo 6 caracteres", autocomplete: "senha" %></dd>
+
+                <dt><%= form.label :company_id %></dt>
+                <dd><%= form.text_field :company_id, value: params[:id], hidden: true  %></dd>
+                <dd><%= form.text_field :fantasy_name, value: params[:name], disabled: true  %></dd>
+            </dl>
+            <%= form.submit t('.submit'), class: 'btn btn-success' %>
+        <% end %>
+    </div>
+</div>

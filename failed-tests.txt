@@ -1,48 +1,60 @@
-example_id                                                    | status | run_time        |
-------------------------------------------------------------- | ------ | --------------- |
-./spec/models/admin_spec.rb[1:1:1]                            | passed | 0.0783 seconds  |
-./spec/models/admin_spec.rb[1:1:2]                            | passed | 0.00666 seconds |
-./spec/models/admin_spec.rb[1:1:3]                            | passed | 0.00996 seconds |
-./spec/models/admin_spec.rb[1:2:1]                            | passed | 0.00329 seconds |
-./spec/models/admin_spec.rb[1:2:2]                            | passed | 0.00397 seconds |
-./spec/models/company_spec.rb[1:1:1]                          | passed | 0.02237 seconds |
-./spec/models/company_spec.rb[1:1:2]                          | passed | 0.01245 seconds |
-./spec/models/company_spec.rb[1:1:3]                          | passed | 0.01332 seconds |
-./spec/models/company_spec.rb[1:1:4]                          | passed | 0.01227 seconds |
-./spec/models/company_spec.rb[1:1:5]                          | passed | 0.01051 seconds |
-./spec/models/company_spec.rb[1:2:1]                          | passed | 0.01393 seconds |
-./spec/models/company_spec.rb[1:2:2]                          | passed | 0.01271 seconds |
-./spec/models/company_spec.rb[1:2:3]                          | passed | 0.00967 seconds |
-./spec/models/company_spec.rb[1:2:4]                          | passed | 0.01068 seconds |
-./spec/models/company_spec.rb[1:2:5]                          | passed | 0.01112 seconds |
-./spec/models/company_spec.rb[1:2:6]                          | passed | 0.01196 seconds |
-./spec/models/company_spec.rb[1:2:7]                          | passed | 0.01401 seconds |
-./spec/models/company_spec.rb[1:2:8]                          | passed | 0.04194 seconds |
-./spec/models/company_spec.rb[1:3:1]                          | passed | 0.03086 seconds |
-./spec/models/company_spec.rb[1:4:1]                          | passed | 0.00508 seconds |
-./spec/models/company_spec.rb[1:4:2]                          | passed | 0.00542 seconds |
-./spec/models/payment_method_spec.rb[1:1:1]                   | passed | 0.01832 seconds |
-./spec/models/payment_method_spec.rb[1:2:1]                   | passed | 0.00656 seconds |
-./spec/models/payment_method_spec.rb[1:2:2]                   | passed | 0.00508 seconds |
-./spec/models/payment_method_spec.rb[1:2:3]                   | passed | 0.00525 seconds |
-./spec/models/payment_method_spec.rb[1:2:4]                   | passed | 0.00426 seconds |
-./spec/models/payment_method_spec.rb[1:3:1]                   | passed | 0.00829 seconds |
-./spec/models/payment_method_spec.rb[1:3:2]                   | passed | 0.0077 seconds  |
-./spec/system/admin/account_management_spec.rb[1:1:1]         | passed | 0.65884 seconds |
-./spec/system/admin/account_management_spec.rb[1:1:2]         | passed | 0.06462 seconds |
-./spec/system/admin/account_management_spec.rb[1:1:3]         | passed | 0.06065 seconds |
-./spec/system/admin/account_management_spec.rb[1:2:1]         | passed | 0.09449 seconds |
-./spec/system/admin/admin_creates_payment_method_spec.rb[1:1] | passed | 0.11886 seconds |
-./spec/system/admin/admin_deletes_payment_method_spec.rb[1:1] | passed | 0.07047 seconds |
-./spec/system/admin/admin_deletes_payment_method_spec.rb[1:2] | passed | 0.1082 seconds  |
-./spec/system/admin/admin_reads_companies_spec .rb[1:1:1]     | passed | 0.75914 seconds |
-./spec/system/admin/admin_reads_companies_spec .rb[1:1:2]     | passed | 0.07702 seconds |
-./spec/system/admin/admin_reads_companies_spec .rb[1:2:1]     | passed | 0.09537 seconds |
-./spec/system/admin/admin_reads_payment_method_spec.rb[1:1]   | passed | 0.08033 seconds |
-./spec/system/admin/admin_reads_payment_method_spec.rb[1:2]   | passed | 0.07815 seconds |
-./spec/system/admin/admin_updates_companies_spec.rb[1:1:1]    | passed | 0.12587 seconds |
-./spec/system/admin/admin_updates_companies_spec.rb[1:1:2]    | passed | 0.15345 seconds |
-./spec/system/admin/admin_updates_companies_spec.rb[1:2:1]    | passed | 0.12784 seconds |
-./spec/system/admin/admin_updates_payment_method_spec.rb[1:1] | passed | 0.12223 seconds |
-./spec/system/admin/admin_updates_payment_method_spec.rb[1:2] | passed | 0.13956 seconds |
-./spec/system/visitor_visit_homepage_spec.rb[1:1]             | passed | 0.01992 seconds |
+example_id                                                    | status  | run_time        |
+------------------------------------------------------------- | ------- | --------------- |
+./spec/models/admin_spec.rb[1:1:1]                            | passed  | 0.1025 seconds  |
+./spec/models/admin_spec.rb[1:1:2]                            | passed  | 0.00632 seconds |
+./spec/models/admin_spec.rb[1:1:3]                            | passed  | 0.01118 seconds |
+./spec/models/admin_spec.rb[1:2:1]                            | passed  | 0.00309 seconds |
+./spec/models/admin_spec.rb[1:2:2]                            | passed  | 0.00307 seconds |
+./spec/models/client_spec.rb[1:1:1]                           | passed  | 0.01382 seconds |
+./spec/models/client_spec.rb[1:1:2]                           | passed  | 0.00317 seconds |
+./spec/models/client_spec.rb[1:1:3]                           | passed  | 0.00328 seconds |
+./spec/models/client_spec.rb[1:1:4]                           | passed  | 0.00673 seconds |
+./spec/models/client_spec.rb[1:1:5]                           | passed  | 0.00316 seconds |
+./spec/models/client_spec.rb[1:2:1]                           | passed  | 0.00725 seconds |
+./spec/models/client_spec.rb[1:2:2]                           | passed  | 0.0079 seconds  |
+./spec/models/company_spec.rb[1:1:1]                          | passed  | 0.02315 seconds |
+./spec/models/company_spec.rb[1:1:2]                          | passed  | 0.01448 seconds |
+./spec/models/company_spec.rb[1:1:3]                          | passed  | 0.01318 seconds |
+./spec/models/company_spec.rb[1:1:4]                          | passed  | 0.01235 seconds |
+./spec/models/company_spec.rb[1:1:5]                          | passed  | 0.01154 seconds |
+./spec/models/company_spec.rb[1:2:1]                          | passed  | 0.01 seconds    |
+./spec/models/company_spec.rb[1:2:2]                          | passed  | 0.0799 seconds  |
+./spec/models/company_spec.rb[1:2:3]                          | passed  | 0.0146 seconds  |
+./spec/models/company_spec.rb[1:2:4]                          | passed  | 0.0111 seconds  |
+./spec/models/company_spec.rb[1:2:5]                          | passed  | 0.0117 seconds  |
+./spec/models/company_spec.rb[1:2:6]                          | passed  | 0.01186 seconds |
+./spec/models/company_spec.rb[1:2:7]                          | passed  | 0.00697 seconds |
+./spec/models/company_spec.rb[1:2:8]                          | passed  | 0.00818 seconds |
+./spec/models/company_spec.rb[1:3:1]                          | passed  | 0.01674 seconds |
+./spec/models/company_spec.rb[1:4:1]                          | passed  | 0.00279 seconds |
+./spec/models/company_spec.rb[1:4:2]                          | passed  | 0.00492 seconds |
+./spec/models/payment_method_spec.rb[1:1:1]                   | passed  | 0.01828 seconds |
+./spec/models/payment_method_spec.rb[1:2:1]                   | passed  | 0.00999 seconds |
+./spec/models/payment_method_spec.rb[1:2:2]                   | passed  | 0.00569 seconds |
+./spec/models/payment_method_spec.rb[1:2:3]                   | passed  | 0.00697 seconds |
+./spec/models/payment_method_spec.rb[1:2:4]                   | passed  | 0.00745 seconds |
+./spec/models/payment_method_spec.rb[1:3:1]                   | passed  | 0.0098 seconds  |
+./spec/models/payment_method_spec.rb[1:3:2]                   | passed  | 0.0119 seconds  |
+./spec/system/admin/account_management_spec.rb[1:1:1]         | passed  | 0.72547 seconds |
+./spec/system/admin/account_management_spec.rb[1:1:2]         | passed  | 0.06066 seconds |
+./spec/system/admin/account_management_spec.rb[1:1:3]         | passed  | 0.06567 seconds |
+./spec/system/admin/account_management_spec.rb[1:2:1]         | passed  | 0.07882 seconds |
+./spec/system/admin/admin_creates_payment_method_spec.rb[1:1] | passed  | 0.13402 seconds |
+./spec/system/admin/admin_deletes_payment_method_spec.rb[1:1] | passed  | 0.08682 seconds |
+./spec/system/admin/admin_deletes_payment_method_spec.rb[1:2] | passed  | 0.1168 seconds  |
+./spec/system/admin/admin_reads_companies_spec .rb[1:1:1]     | passed  | 0.75914 seconds |
+./spec/system/admin/admin_reads_companies_spec .rb[1:1:2]     | passed  | 0.07702 seconds |
+./spec/system/admin/admin_reads_companies_spec .rb[1:2:1]     | passed  | 0.09537 seconds |
+./spec/system/admin/admin_reads_payment_method_spec.rb[1:1]   | passed  | 0.10096 seconds |
+./spec/system/admin/admin_reads_payment_method_spec.rb[1:2]   | passed  | 0.13092 seconds |
+./spec/system/admin/admin_updates_companies_spec.rb[1:1:1]    | passed  | 0.12524 seconds |
+./spec/system/admin/admin_updates_companies_spec.rb[1:1:2]    | passed  | 0.15984 seconds |
+./spec/system/admin/admin_updates_companies_spec.rb[1:2:1]    | passed  | 0.13386 seconds |
+./spec/system/admin/admin_updates_payment_method_spec.rb[1:1] | passed  | 0.09748 seconds |
+./spec/system/admin/admin_updates_payment_method_spec.rb[1:2] | passed  | 0.12662 seconds |
+./spec/system/visitor_creates_a_partner_spec.rb[1:1]          | passed  | 0.08929 seconds |
+./spec/system/visitor_creates_a_partner_spec.rb[1:2]          | passed  | 0.10467 seconds |
+./spec/system/visitor_visit_homepage_spec.rb[1:1]             | passed  | 0.01639 seconds |
+./spec/system/visitor_visit_login_page_spec.rb[1:1]           | passed  | 0.04263 seconds |
+./spec/system/visitor_visit_login_page_spec.rb[1:2]           | passed  | 0.05457 seconds |
+./spec/system/visitor_visit_login_page_spec.rb[1:3]           | pending | 0.00001 seconds |

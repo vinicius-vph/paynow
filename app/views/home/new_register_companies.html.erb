@@ -1,0 +1,84 @@
+<div class="container" style="height:100%">
+    <h5 style="margin-top:2rem">REGISTRAR NOVO PARCEIRO</h5>
+    <%= link_to "Voltar", :back, class: "btn btn-primary btn-sm btn-warning" %>
+    <div class="d-flex flex-column align-items-center justify-content-center card company" style="min-width:499px;margin-top:1rem;font-size:0.7rem;padding:0.4rem">
+        <%= form_with model: [:register, @company] do |form| %>
+            <dl>
+                <dt><%= form.label :fantasy_name %></dt>
+                <dd><%= form.text_field :fantasy_name %></dd>
+
+                <dt><%= form.label :cnpj %></dt>
+                <dd><%= form.text_field :cnpj, maxlength: 18, minlength: 18 , onkeypress: 'formatCpfCnpj(this,cpfCnpj)' %></dd>
+
+                <dt><%= form.label :corporate_name %></dt>
+                <dd><%= form.text_field :corporate_name %></dd>
+
+                <dt><%= form.label :billing_address %></dt>
+                <dd><%= form.text_field :billing_address %></dd>
+
+                <dt><%= form.label :billing_email %></dt>
+                <dd><%= form.text_field :billing_email %></dd>
+
+                <dt><%= form.label :company_admin_email %></dt>
+                <dd><%= form.text_field :company_admin_email %></dd>
+
+                <div class="form-check form-switch" style="width:50%; margin:1rem auto">
+                  <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                  <label class="form-check-label" for="flexSwitchCheckDefault" style="font-size:0.5rem;font-weight:700">
+                    CONFIRMO QUE OS DADOS FORNECDOS ACIMA SÃO VERDADEIROS E AUTÊNTICOS  E ESTOU DE ACORDO 
+                    COM OS TERMOS DE USO. FICO CIENTE QUE A FALSIDADE DESSA DECLARAÇÃO CONFIGURA CRIME PREVISTO 
+                    NO CÓDIGO PENAL BRASILEIRO PASSÍVEL DE APURAÇÃO NA FORMA DA LEI.
+                  </label>
+                </div>
+            </dl>
+            <%= form.submit t('.submit'), class: 'btn btn-success' %>
+        <% end %>
+    </div>
+</div>
+
+<script>
+    function formatCpfCnpj(inputValue,callback) {
+        input = inputValue;
+        functionCallback = callback;
+        setTimeout('inputFieldMask()', 4);
+    }
+
+    function inputFieldMask(){
+        input.value = functionCallback(input.value);
+    }
+
+    function cpfCnpj(inputChange){
+
+        //Remove tudo o que não é dígito
+        inputChange = inputChange.replace(/\D/g,"");
+        
+        if (inputChange.length <= 11) { //CPF
+            
+            //Coloca um ponto entre o terceiro e o quarto dígitos
+            inputChange=inputChange.replace(/(\d{3})(\d)/,"$1.$2");
+            
+            //Coloca um ponto entre o terceiro e o quarto dígitos
+            //de novo (para o segundo bloco de números)
+            inputChange=inputChange.replace(/(\d{3})(\d)/,"$1.$2");
+            
+            //Coloca um hífen entre o terceiro e o quarto dígitos
+            inputChange=inputChange.replace(/(\d{3})(\d{1,2})$/,"$1-$2");
+            
+        } else { //CNPJ
+            
+            //Coloca ponto entre o segundo e o terceiro dígitos
+            inputChange=inputChange.replace(/^(\d{2})(\d)/,"$1.$2");
+            
+            //Coloca ponto entre o quinto e o sexto dígitos
+            inputChange=inputChange.replace(/^(\d{2})\.(\d{3})(\d)/,"$1.$2.$3");
+            
+            //Coloca uma barra entre o oitavo e o nono dígitos
+            inputChange=inputChange.replace(/\.(\d{3})(\d)/,".$1/$2");
+            
+            //Coloca um hífen depois do bloco de quatro dígitos
+            inputChange=inputChange.replace(/(\d{4})(\d)/,"$1-$2");
+        }
+        
+        return inputChange;
+    }
+</script>
