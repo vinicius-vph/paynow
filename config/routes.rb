@@ -12,6 +12,11 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :client do
+    root to: 'client#index'
+    resources :companies, only: %i[show edit update]
+  end
+
   get 'register', to: 'home#register' 
   get 'register/companies', to: 'home#new_register_companies' 
   post 'register/companies', to: 'home#create_register_companies' 

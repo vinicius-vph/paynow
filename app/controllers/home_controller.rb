@@ -13,7 +13,7 @@ class HomeController < ApplicationController
         @company = Company.create!(company_params)
 
         if @company
-            redirect_to register_clients_path(name: @company.fantasy_name, id: @company, domain: @company.company_admin_email), layout: "application", notice: t('.success')
+            redirect_to register_clients_path(id: @company, name: @company.fantasy_name, pattern: @company.company_admin_email.split('@').last), layout: "application", notice: t('.success')
         else
             @company = Company.new
             render "register/companies", layout: "application", notice: t('.fail')

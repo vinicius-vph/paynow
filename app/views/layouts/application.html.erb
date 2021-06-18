@@ -21,6 +21,14 @@
           <p style="font-size:.7rem;margin:0"><%= current_admin.email %></p>
           <%= button_to "Sair", destroy_admin_session_path, type: :button, method: :delete, class: "btn btn-danger", style:"font-size:.7rem;margin-left:.5rem" %>
         </div>
+      <% elsif client_signed_in? %>
+        <a href="<%= client_root_path %>">
+          <h1 style="text-align:center;" class="h1">Área do Cliente</h1>
+        </a>
+        <div class="d-flex justify-content-center align-items-center" style="height:100%;position:absolute;right:0;">
+          <p style="font-size:.7rem;margin:0"><%= current_client.email %></p>
+          <%= button_to "Sair", destroy_client_session_path, type: :button, method: :delete, class: "btn btn-danger", style:"font-size:.7rem;margin-left:.5rem" %>
+        </div>
       <% else %>
         <a href="/">
           <h1 style="text-align:center;" class="h1">Bem vindo ao PayNow</h1>

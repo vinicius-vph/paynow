@@ -5,7 +5,7 @@
         <%= form_with model: [:register, @client] do |form| %>
             <dl>
                 <dt><%= form.label :email %></dt>
-                <dd><%= form.email_field :email, autofocus: true, autocomplete: "email", placeholder: "usuario@seudominio.com", value: params[:domain] %></dd>
+                <dd><%= form.email_field :email, autofocus: true, autocomplete: "email", placeholder:  'Digite seu email', value: "@#{params[:pattern]}" %></dd>
 
                 <dt><%= form.label :password %></dt>
                 <dd><%= form.password_field :password, minlength: 6, placeholder: "Mínimo 6 caracteres", autocomplete: "senha" %></dd>
@@ -15,7 +15,7 @@
 
                 <dt><%= form.label :company_id %></dt>
                 <dd><%= form.text_field :company_id, value: params[:id], hidden: true  %></dd>
-                <dd><%= form.text_field :fantasy_name, value: params[:name], disabled: true  %></dd>
+                <dd><%= form.text_field :fantasy_name, value: params[:name], disabled: true, style: "text-align:center"  %></dd>
             </dl>
             <%= form.submit t('.submit'), class: 'btn btn-success' %>
         <% end %>

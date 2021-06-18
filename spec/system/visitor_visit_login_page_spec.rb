@@ -27,14 +27,21 @@ describe 'Visitor visit login page' do
     expect(page).to have_content('Email do administrador')
     expect(page).to have_content('CONFIRMO QUE OS DADOS FORNECDOS ACIMA SÃO VERDADEIROS E AUTÊNTICOS E ESTOU DE ACORDO COM OS TERMOS DE USO. FICO CIENTE QUE A FALSIDADE DESSA DECLARAÇÃO CONFIGURA CRIME PREVISTO NO CÓDIGO PENAL BRASILEIRO PASSÍVEL DE APURAÇÃO NA FORMA DA LEI.')
     expect(page).to have_button('Registrar')
-
-
+    
+    
   end
-
-  xit '- Should be able to access partner page' do
+  
+  it '- Should be able to access partner page' do
     visit root_path
     click_on 'Login'
     click_on 'Sim, sou parceiro Paynow'
 
+    expect(current_path).to eq(new_client_session_path)
+    expect(page).to have_content('Área do Cliente')
+    expect(page).to have_content('Email')
+    expect(page).to have_content('Senha')
+    expect(page).to have_content('Lembrar dados')
+    expect(page).to have_content('Cadastrar novo usuário')
+    expect(page).to have_content('Esqueci minha senha')
   end
 end

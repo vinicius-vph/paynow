@@ -1,5 +1,12 @@
 ---
 pt-BR:
+  client:
+    companies:
+      edit:
+        alert: 'Autorizado somente ao administrador !'
+        submit: 'Atualizar cadastro'
+      update:
+        success: 'Atualizado com sucesso'
   admin:
     companies:
       edit:

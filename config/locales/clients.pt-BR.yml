@@ -1,0 +1,26 @@
+---
+pt-BR:
+  activerecord:
+    models:
+      client:
+        one: 'Cliente'
+        other: 'Clientes'
+    attributes:
+      client:
+        email: 'Email'
+        password: 'Senha'
+        remember_me: 'Lembrar dados'
+        password_confirmation: 'Confirmar senha'
+        company_id: "Escolha sua Empresa"
+        submit: 'Entrar'
+  clients:
+    registrations:
+      new:
+        title: 'Cadastro de Clientes'
+        signup: 'Cadastrar'
+        submit: 'Cadastrar'
+    sessions:
+      new:
+        title: 'Área do Cliente'
+        remember_me: 'Lembrar-se de mim'
+        submit: 'Entrar'
