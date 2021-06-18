@@ -1,6 +1,6 @@
 <div class="container d-flex flex-column align-items-center justify-content-center" style="height:100%">
   <div class="d-flex flex-column align-items-center justify-content-center card" style="min-width:499px;min-height:380px">
-    <h2>Log in</h2>
+    <h2><%= t('.title') %></h2>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="field">
         <%= f.label :email %><br />
@@ -20,7 +20,7 @@
       <% end %>
 
       <div class="actions">
-        <%= f.submit "Entrar" %>
+        <%= f.submit t('.submit') %>
       </div>
     <% end %>
 
