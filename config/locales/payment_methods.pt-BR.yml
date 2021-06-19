@@ -10,7 +10,8 @@ pt-BR:
         payment_type: 'Tipo de Pagamento'
         submit: 'Enviar'
       create:
-        success: "Criado com sucesso"
+        success: 'Meio de pagamento criado com sucesso !'
+        fail: 'Falha ao criar meio de pagamento !'
       edit:
         name: 'Nome'
         payment_fee: 'Taxa por Cobrança'
@@ -19,9 +20,10 @@ pt-BR:
         payment_type: 'Tipo de Pagamento'
         submit: 'Atualizar'
       update:
-        success: "Atualizado com sucesso"
+        success: 'Meio de pagamento atualizado com sucesso !'
+        fail: 'Falha ao atualizar meio de pagamento !'
       destroy:
-        success: "Apagado com sucesso!"
+        success: 'Meio de pagamento apagado com sucesso !'
   activerecord:
     attributes:
       payment_method:

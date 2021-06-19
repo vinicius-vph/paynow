@@ -70,7 +70,7 @@ describe 'Admin updates company' do
             
             click_on 'Atualizar'
             
-            expect(page).to have_text('Atualizado com sucesso')
+            expect(page).to have_text('Cadastro atualizado com sucesso !')
             expect(current_path).to eq(admin_company_path(company))
             expect(page).to have_text('Mercado do Bairro')
             expect(page).to have_text('12.123.123/0001-02')

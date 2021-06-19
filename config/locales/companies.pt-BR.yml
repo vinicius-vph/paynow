@@ -6,7 +6,8 @@ pt-BR:
         alert: 'Autorizado somente ao administrador !'
         submit: 'Atualizar cadastro'
       update:
-        success: 'Atualizado com sucesso'
+        success: 'Cadastro atualizado com sucesso !'
+        fail: 'Não foi possível atualizar cadastro !'
   admin:
     companies:
       edit:
@@ -20,12 +21,13 @@ pt-BR:
         status: 'Situação cadastral'
         submit: 'Atualizar'
       update:
-        success: "Atualizado com sucesso"
+        success: 'Cadastro atualizado com sucesso !'
+        fail: 'Não foi possível atualizar cadastro !'
       destroy:
-        success: "Apagado com sucesso!"
+        success: 'Cadastro apagado com sucesso!'
       update_token:
-        success: "Token atualizado com sucesso"
-        fail: "Não foi possível atualizar o Token"
+        success: 'Token atualizado com sucesso'
+        fail: 'Não foi possível atualizar o Token'
   activerecord:
     attributes:
       company:

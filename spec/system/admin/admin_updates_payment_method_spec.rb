@@ -45,7 +45,7 @@ describe 'Admin updates payment method' do
 
         click_on 'Atualizar'
 
-        expect(page).to have_text('Atualizado com sucesso')
+        expect(page).to have_text('Meio de pagamento atualizado com sucesso !')
         expect(current_path).to eq(admin_payment_methods_path)
         expect(page).to have_text('246 - Banco ABC Brasil S.A.')
         expect(page).to have_text('2.0 %')

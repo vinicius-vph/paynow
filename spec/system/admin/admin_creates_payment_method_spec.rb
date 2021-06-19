@@ -24,7 +24,7 @@ describe 'Admin creates payment method' do
 
         click_on 'Enviar'
 
-        expect(page).to have_text('Criado com sucesso')
+        expect(page).to have_text('Meio de pagamento criado com sucesso !')
         expect(page).to have_link('Criar novo')
         expect(page).to have_css('img[src*="pix-"]')
         expect(page).to have_content('341 - Banco Itau')

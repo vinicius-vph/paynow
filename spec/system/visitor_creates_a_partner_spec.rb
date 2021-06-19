@@ -17,7 +17,7 @@ describe 'Visitor visit no partner page' do
     click_on 'Registrar'
 
     expect(current_path).to eq(register_clients_path)
-    expect(page).to have_content("Empresa Cadastrada com sucesso, agora cadastre seus dados!")
+    expect(page).to have_content("Empresa Cadastrada com sucesso ! Agora cadastre seus dados para acessar a plataforma Paynow!")
     expect(page).to have_content("CADASTRO DE CLIENTE")
     expect(page).to have_content("Email")
     expect(page).to have_content("Senha")

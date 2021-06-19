@@ -1,4 +1,6 @@
 class HomeController < ApplicationController
+    before_action :is_signed_in?
+
     def index
     end
 
@@ -13,10 +15,13 @@ class HomeController < ApplicationController
         @company = Company.create!(company_params)
 
         if @company
-            redirect_to register_clients_path(id: @company, name: @company.fantasy_name, pattern: @company.company_admin_email.split('@').last), layout: "application", notice: t('.success')
+            redirect_to register_clients_path(id: @company, 
+                                                name: @company.fantasy_name, 
+                                                pattern: @company.company_admin_email.split('@').last), 
+                                                layout: "application", notice: t('.success')
         else
             @company = Company.new
-            render "register/companies", layout: "application", notice: t('.fail')
+            render "register/companies", layout: "application", alert: t('.fail')
         end
     end
 
@@ -31,7 +36,7 @@ class HomeController < ApplicationController
             redirect_to new_client_session_path, layout: "application", notice: t('.success')
         else
             @client = Client.new
-            render "register/clients", layout: "application", notice: t('.fail')
+            render "register/clients", layout: "application", alert: t('.fail')
         end 
     end
 
@@ -46,7 +51,8 @@ class HomeController < ApplicationController
         params.require(:client).permit(:email, :password, :company_id)
     end
 
-    def set_company
-        @company = Company.find(params[:id])
+    def is_signed_in?
+        redirect_to "/admin", layout: "application" if admin_signed_in?
+        redirect_to "/client", layout: "application" if client_signed_in?
     end
 end

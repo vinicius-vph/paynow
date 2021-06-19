@@ -19,7 +19,7 @@ class Admin::CompaniesController < Admin::AdminController
         if @company.update!(company_params)
             redirect_to [:admin, @company], layout: "application", notice: t('.success')
         else
-            render "/admin/companies/edit", layout: "application"
+            render "/admin/companies/edit", layout: "application", alert: t('.fail')
         end   
     end
 

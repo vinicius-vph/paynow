@@ -19,7 +19,7 @@ class Admin::PaymentMethodsController < Admin::AdminController
           redirect_to "/admin/payment_methods/", layout: "application", notice: t('.success')
         else
             @payment_method = PaymentMethod.new
-            render "/admin/payment_methods/new", layout: "application"
+            render "/admin/payment_methods/new", layout: "application", alert: t('.fail')
         end
     end
 
@@ -31,7 +31,7 @@ class Admin::PaymentMethodsController < Admin::AdminController
         if @payment_method.update!(update_params)
             redirect_to "/admin/payment_methods", layout: "application", notice: t('.success')
         else
-            render "/admin/payment_methods/edit", layout: "application"
+            render "/admin/payment_methods/edit", layout: "application", alert: t('.fail')
         end
     end
 

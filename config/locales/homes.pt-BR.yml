@@ -8,8 +8,8 @@ pt-BR:
       company_id: 'Empresa'
       submit: 'Registrar'
     create_register_clients:
-      success: "Seu cadastro foi criado com sucesso faça seu login para continuar"
-      fail: "Não foi possível criar o cadastro"
+      success: 'Seu cadastro foi criado com sucesso faça seu login para continuar !'
+      fail: 'Não foi possível criar o cadastro !'
     new_register_companies:
       fantasy_name: 'Nome Fantasia'
       cnpj: 'CNPJ'
@@ -19,8 +19,8 @@ pt-BR:
       company_admin_email: 'Email do administrador'
       submit: 'Registrar'
     create_register_companies:
-        success: "Empresa Cadastrada com sucesso, agora cadastre seus dados!"
-        fail: "Não foi possível criar o cadastro"
+        success: 'Empresa Cadastrada com sucesso ! Agora cadastre seus dados para acessar a plataforma Paynow!'
+        fail: 'Não foi possível criar o cadastro verifique as informações fornecidas !'
   activerecord:
     attributes:
       fantasy_name: 'Nome Fantasia'
@@ -31,4 +31,4 @@ pt-BR:
       company_admin_email: 'Email do administrador'
       company_token: 'Token'
       status: 'Situação cadastral'
-      password: "Senha"
+      password: 'Senha'

@@ -15,7 +15,7 @@ class Client::CompaniesController < Client::ClientController
         if @company.update!(company_params)
             redirect_to [:client, @company], layout: "application", notice: t('.success')
         else
-            render "/client/companies/edit", layout: "application"
+            render "/client/companies/edit", layout: "application", alert: t('.fail')
         end   
     end
 

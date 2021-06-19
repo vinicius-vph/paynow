@@ -54,9 +54,7 @@
     <footer class="navbar d-flex justify-content-center" style="height:40px;background: linear-gradient(600deg,#28a745 1%, #20c997);">
       <p style="text-align:center;margin:0;font-size:.7rem">Copyright ©2021 All rights reserved | Paynow Brasil</p>
         <% if current_page?('/') %>
-          <% unless admin_signed_in? %>
             <%= link_to 'Área do admin', new_admin_session_path, method: :get, class: "btn btn-outline-danger", style: "position: absolute;right:0;font-size:.7rem" %>
-          <% end %>
         <% end %>
     </footer>
   </body>

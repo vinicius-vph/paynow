@@ -36,7 +36,7 @@ describe 'Admin deletes payment method' do
 
         expect { click_on '❌' }.to change { PaymentMethod.count }.by(-1)
         expect(current_path).to eq(admin_payment_methods_path)
-        expect(page).to have_content('Apagado com sucesso!')
+        expect(page).to have_content('Meio de pagamento apagado com sucesso !')
     end
 
 end
