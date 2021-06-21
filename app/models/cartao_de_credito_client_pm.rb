@@ -1,0 +1,2 @@
+class CartaoDeCreditoClientPm < ApplicationRecord
+end

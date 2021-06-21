@@ -1,0 +1,2 @@
+class BoletoBancarioClientPm < ApplicationRecord
+end

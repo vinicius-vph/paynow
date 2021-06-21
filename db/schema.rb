@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_17_180144) do
+ActiveRecord::Schema.define(version: 2021_06_21_215154) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -52,6 +52,24 @@ ActiveRecord::Schema.define(version: 2021_06_17_180144) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
+  create_table "boleto_bancario_client_pms", force: :cascade do |t|
+    t.string "bank_code"
+    t.string "bank_agency"
+    t.string "bank_account"
+    t.integer "payment_method_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["payment_method_id"], name: "index_boleto_bancario_client_pms_on_payment_method_id"
+  end
+
+  create_table "cartao_de_credito_client_pms", force: :cascade do |t|
+    t.string "card_code"
+    t.integer "payment_method_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["payment_method_id"], name: "index_cartao_de_credito_client_pms_on_payment_method_id"
+  end
+
   create_table "clients", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -79,6 +97,21 @@ ActiveRecord::Schema.define(version: 2021_06_17_180144) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "company_logs", force: :cascade do |t|
+    t.string "fantasy_name"
+    t.string "cnpj"
+    t.string "corporate_name"
+    t.string "billing_address"
+    t.string "billing_email"
+    t.string "company_admin_email"
+    t.string "company_token"
+    t.integer "status"
+    t.integer "company_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["company_id"], name: "index_company_logs_on_company_id"
+  end
+
   create_table "payment_methods", force: :cascade do |t|
     t.string "name"
     t.decimal "payment_fee"
@@ -89,7 +122,20 @@ ActiveRecord::Schema.define(version: 2021_06_17_180144) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "pix_client_pms", force: :cascade do |t|
+    t.string "key"
+    t.string "bank_code"
+    t.integer "payment_method_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["payment_method_id"], name: "index_pix_client_pms_on_payment_method_id"
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "boleto_bancario_client_pms", "payment_methods"
+  add_foreign_key "cartao_de_credito_client_pms", "payment_methods"
   add_foreign_key "clients", "companies"
+  add_foreign_key "company_logs", "companies"
+  add_foreign_key "pix_client_pms", "payment_methods"
 end
