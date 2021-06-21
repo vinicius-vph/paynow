@@ -3,23 +3,37 @@ class Client < ApplicationRecord
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+  before_validation :active_for_authentication?
 
-  email_domain_not_allowed = /\b[A-Z0-9._%a-z\-]+@(google|yahoo|hotmail|paynow)/
-  validates :email, format: { without: email_domain_not_allowed }
-  validates :email, :password, presence: true
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable         
+  
+  email_domain_not_allowed = /\b[A-Z0-9._%a-z\-]+@(yahoo|hotmail|paynow|google)/
+  validates :email, format: { without: email_domain_not_allowed, message: "com domínio inválido" }
+  validates :email, :password, :company_id, presence: true
   validates :email, uniqueness: true
 
-  before_validation do 
+  def active_for_authentication?
+    super && self.check_if_company_is_active && self.is_domain_correct?
+  end
+  
+  def inactive_message
+    "Sua conta foi desabilitada, sua empresa está com perfil desativado
+    ou os dados de domínio de email não conferem em nossa base. 
+    Entre em com a contato@paynow.com para mais informações"
+  end
+  
+  private
+
+  def check_if_company_is_active
+    Company.find(self.company_id).ativo?
+  end
+
+  def is_domain_correct?
     client_register_email = self.email.split('@').last
-    company_find = Company.find(self.company_id)
-    company_domain_pattern = company_find.company_admin_email.split('@').last
+    valid_company_find = Company.find(self.company_id)
+    company_domain_pattern = valid_company_find.company_admin_email.split('@').last
     
-    if client_register_email === company_domain_pattern 
-      self.email = self.email 
-    else 
-      self.email = client_register_email
-    end  
-  end    
-end
+    client_register_email === company_domain_pattern ? true : false   
+
+  end
+end  

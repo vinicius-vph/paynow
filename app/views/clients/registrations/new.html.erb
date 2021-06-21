@@ -21,9 +21,10 @@
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
 
   </div>
+
   <div class="field">
     <%= f.label :company_id %><br />
-    <%= f.collection_select :company_id, Company.order(:fantasy_name), :id, :fantasy_name %>
+    <%= f.collection_select :company_id, Company.where(status: :ativo).sort, :id, :fantasy_name %>
   </div>
 
   <div class="actions">
