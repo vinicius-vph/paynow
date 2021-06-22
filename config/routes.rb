@@ -14,7 +14,9 @@ Rails.application.routes.draw do
 
   namespace :client do
     root to: 'client#index'
-    resources :companies, only: %i[show edit update]
+    resources :companies, only: %i[show edit update] do
+      put 'update_token', on: :member
+    end
   end
 
   get 'register', to: 'home#register' 

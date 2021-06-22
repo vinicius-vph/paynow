@@ -1,7 +1,7 @@
 class Client::CompaniesController < Client::ClientController
     before_action :authenticate_client!
-    before_action :set_company, only: %i[show edit update]
-    before_action :is_client_admin?, only: %i[edit update]
+    before_action :set_company, only: %i[show edit update update_token]
+    before_action :is_client_admin?, only: %i[edit update update_token]
 
     def show
         render "/client/companies/show", layout: "application"
@@ -17,6 +17,18 @@ class Client::CompaniesController < Client::ClientController
         else
             render "/client/companies/edit", layout: "application", alert: t('.fail')
         end   
+    end
+
+    def update_token
+        smartToken = SecureRandom.base58(20)
+
+        unless Company.where(company_token: smartToken).any?
+            @company.company_token = smartToken    
+            @company.save
+            redirect_to [:client, @company], layout: "application", notice: t('.success')
+        else
+            redirect_to [:client, @company], layout: "application", notice: t('.fail')
+        end
     end
 
     private

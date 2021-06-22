@@ -118,5 +118,80 @@ describe 'Client admin update company info' do
 
         end        
     end
+
+    context 'Update company token' do
+        it '- Should be able update company token if is valid client admin' do
+            company = Company.create!(fantasy_name: "Codeplay Cursos", cnpj: "24.529.871/0001-65", 
+                corporate_name: "CODEPLAY SERVICOS DE VAREJO DO BRASIL LTDA", 
+                billing_address: "Rua Maestro Cállia - 271 - Vila Mariana - São Paulo - SP", 
+                billing_email: "faturamento@codeplay.com.br", company_admin_email: "admin@codeplay.com.br", 
+                company_token: "0dGR548e9Hoa6flfLW421", status: :ativo
+            )
+
+            client = Client.create!(email: "admin@codeplay.com.br", password: '123456', company_id: 1)
+
+            visit root_path
+            click_on 'Login'
+            click_on 'Sim, sou parceiro Paynow'
+    
+            fill_in 'Email', with: 'admin@codeplay.com.br'
+            fill_in 'Senha', with: '123456'
+    
+            click_on 'Entrar'
+    
+            click_on 'Empresa'
+
+            click_on 'Renovar Token'
+
+            expect(page).to_not have_text(company.company_token)
+            expect(current_path).to eq(client_company_path(company))
+            expect(page).to have_text('Token atualizado com sucesso !')
+            expect(page).to have_text('Codeplay Cursos')
+            expect(page).to have_text('24.529.871/0001-65')
+            expect(page).to have_text('CODEPLAY SERVICOS DE VAREJO DO BRASIL LTDA')
+            expect(page).to have_text('Rua Maestro Cállia - 271 - Vila Mariana - São Paulo - SP')
+            expect(page).to have_text('faturamento@codeplay.com.br')
+            expect(page).to have_text('admin@codeplay.com.br')
+            expect(page).to have_text('ativo')
+
+        end        
+
+        it '- Should not be able update company token if is valid client admin' do
+            company = Company.create!(fantasy_name: "Codeplay Cursos", cnpj: "24.529.871/0001-65", 
+                corporate_name: "CODEPLAY SERVICOS DE VAREJO DO BRASIL LTDA", 
+                billing_address: "Rua Maestro Cállia - 271 - Vila Mariana - São Paulo - SP", 
+                billing_email: "faturamento@codeplay.com.br", company_admin_email: "admin@codeplay.com.br", 
+                company_token: "0dGR548e9Hoa6flfLW421", status: :ativo
+            )
+
+            client = Client.create!(email: "user@codeplay.com.br", password: '123456', company_id: 1)
+
+            visit root_path
+            click_on 'Login'
+            click_on 'Sim, sou parceiro Paynow'
+    
+            fill_in 'Email', with: 'user@codeplay.com.br'
+            fill_in 'Senha', with: '123456'
+    
+            click_on 'Entrar'
+    
+            click_on 'Empresa'
+
+            click_on 'Renovar Token'
+
+            expect(page).to have_text('Autorizado somente ao administrador !')
+            expect(page).to_not have_text('Token atualizado com sucesso !')
+            expect(current_path).to eq(client_root_path)
+            expect(page).to_not have_text(company.fantasy_name)
+            expect(page).to_not have_text(company.cnpj)
+            expect(page).to_not have_text(company.corporate_name)
+            expect(page).to_not have_text(company.billing_address)
+            expect(page).to_not have_text(company.billing_email)
+            expect(page).to_not have_text(company.company_admin_email)
+            expect(page).to_not have_text(company.company_token)
+            expect(page).to_not have_text(company.status)
+
+        end        
+    end
     
 end
