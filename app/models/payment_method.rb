@@ -1,4 +1,8 @@
 class PaymentMethod < ApplicationRecord
+    has_many :pix_client_pms
+    has_many :boleto_bancario_client_pms
+    has_many :cartao_de_credito_client_pms
+    
     enum status: { inativo: 0, ativo: 1 }
     enum payment_type: { pix: 0, boleto_bancario: 1, cartao_de_credito: 2  }
 

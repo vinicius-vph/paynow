@@ -1,3 +1,5 @@
 class PixClientPm < ApplicationRecord
-  belongs_to :PaymentMethod
+  belongs_to :payment_method
+  belongs_to :company
+  
 end

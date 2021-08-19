@@ -1,0 +1,60 @@
+<div class="container" style="height:100%;">
+    <h5 style="margin-top:2rem">Paynow - Meios de pagamento disponiveis</h5>
+    <%= link_to "Voltar", :back, class: "btn btn-primary btn-sm btn-warning" %>
+    <%#= link_to "Habilitar novo", "new_admin_payment_method_path", class: "d-flex align-items-start btn btn-primary btn-sm btn-info", style: "width:5.2rem" %>
+   <div class="d-flex align-items-end" style="margin-top:1rem;">
+        <table class="table table-striped table-hover" style="overflow-y:scroll;">
+              <thead>
+                <tr class="table-success">
+                    <th scope="col">#</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Taxa por Cobrança</th>
+                    <th scope="col">Taxa Máxima em R$</th>
+                    <th scope="col">Tipo</th>
+                    <th scope="col">Habilitado?</th>
+                    <th scope="col">Aceitar esse meio pagamento</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if @payment_methods %>
+                    <% @payment_methods.each do |payment_method| %>
+                        <tr>
+                            <th scope="row">
+                                <% case payment_method.payment_type %>
+                                    <% when "pix" %>
+                                        <%= image_tag "pix.png", size: '40' %>
+                                    <% when "boleto_bancario" %>
+                                        <%= image_tag "boleto_bancario.png", size: '40' %>
+                                    <% when "cartao_de_credito" %>
+                                        <%= image_tag "cartao_de_credito.png", size: '40' %>
+                                <% end %>
+                            </th>
+                            <td><%= payment_method.name %></td>
+                            <td><%= payment_method.payment_fee %> %</td>
+                            <td>R$ <%= payment_method.max_pay_fee %></td>
+                            <td><%= payment_method.payment_type %></td>
+                            <td><input type="text" name="" id="" value="não" disabled></td>
+                            <td>
+                                <% case payment_method.payment_type %>
+                                    <% when "pix" %>
+                                        <%= link_to '✅', new_client_payment_method_pix_client_pm_path(payment_method), style:"background-color:transparent;border:none" %>
+                                    <% when "boleto_bancario" %>
+                                        <%= link_to '✅', new_client_payment_method_boleto_bancario_client_pm_path(payment_method), style:"background-color:transparent;border:none" %>
+                                    <% when "cartao_de_credito" %>
+                                        <%= link_to '✅', new_client_payment_method_cartao_de_credito_client_pm_path(payment_method), style:"background-color:transparent;border:none" %>
+                                <% end %>
+                                                               
+                            </td>
+                        </tr>
+                    <% end %>
+                <% else %>
+                    <tr>
+                        <td colspan="6" class="text-danger">Nenhum meio de pagamento dísponivel</td>
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+

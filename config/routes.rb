@@ -14,6 +14,11 @@ Rails.application.routes.draw do
 
   namespace :client do
     root to: 'client#index'
+    resources :payment_methods, only: %i[index] do
+      resources :pix_client_pms, only: %i[new create] 
+      resources :boleto_bancario_client_pms, only: %i[new create]
+      resources :cartao_de_credito_client_pms, only: %i[new create]
+    end
     resources :companies, only: %i[show edit update] do
       put 'update_token', on: :member
     end
