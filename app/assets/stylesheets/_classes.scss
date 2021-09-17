@@ -1,0 +1,49 @@
+section .card {
+  height: 38rem !important;
+  width: 80%;
+  form {
+    // border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 75% !important;
+    width: 80% !important;
+    
+    & > .field {
+      height: 25rem;
+      margin: .5rem 0;
+      label {font-size: 1.5rem;}
+      input[type="email"], 
+      input[type="password"],
+      input[type="text"] {
+        width: 100%;
+        height: 3rem;
+        font-size: 1.5rem;
+      }
+    }
+    .actions {
+      width: 70%;
+      margin: 1rem auto;
+      input[type="submit"] {
+        width: 100%;
+        height: 3.5rem !important;
+        font-size: 1.5rem;
+      }
+    }
+  }
+}
+
+section .company_form {
+  height: 52rem !important;
+
+  form {
+    height: 100% !important;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  section .card {
+    width: 35% !important;
+  }
+
+}
