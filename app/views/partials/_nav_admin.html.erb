@@ -1,0 +1,7 @@
+<a href="<%= admin_root_path %>">
+  <h1 class="h1">Área do Administrador</h1>
+</a>
+<div class="d-flex justify-content-center align-items-center position-absolute end-0">
+  <p><%= current_admin.email %></p>
+  <%= button_to "Sair", destroy_admin_session_path, type: :button, method: :delete, class: "btn btn-danger ms-2" %>
+</div>

@@ -1,37 +1,42 @@
-<div class="container" style="height:100%">
-    <h5 style="margin-top:2rem">REGISTRAR NOVO PARCEIRO</h5>
-    <%= link_to "Voltar", :back, class: "btn btn-primary btn-sm btn-warning" %>
-    <div class="d-flex flex-column align-items-center justify-content-center card company" style="min-width:499px;margin-top:1rem;font-size:0.7rem;padding:0.4rem">
-        <%= form_with model: [:register, @company] do |form| %>
-            <dl>
-                <dt><%= form.label :fantasy_name %></dt>
-                <dd><%= form.text_field :fantasy_name %></dd>
-
-                <dt><%= form.label :cnpj %></dt>
-                <dd><%= form.text_field :cnpj, maxlength: 18, minlength: 18 , onkeypress: 'formatCpfCnpj(this,cpfCnpj)' %></dd>
-
-                <dt><%= form.label :corporate_name %></dt>
-                <dd><%= form.text_field :corporate_name %></dd>
-
-                <dt><%= form.label :billing_address %></dt>
-                <dd><%= form.text_field :billing_address %></dd>
-
-                <dt><%= form.label :billing_email %></dt>
-                <dd><%= form.text_field :billing_email %></dd>
-
-                <dt><%= form.label :company_admin_email %></dt>
-                <dd><%= form.text_field :company_admin_email %></dd>
-
-                <div class="form-check form-switch" style="width:50%; margin:1rem auto">
-                  <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                  <label class="form-check-label" for="flexSwitchCheckDefault" style="font-size:0.5rem;font-weight:700">
-                    CONFIRMO QUE OS DADOS FORNECDOS ACIMA SÃO VERDADEIROS E AUTÊNTICOS  E ESTOU DE ACORDO 
-                    COM OS TERMOS DE USO. FICO CIENTE QUE A FALSIDADE DESSA DECLARAÇÃO CONFIGURA CRIME PREVISTO 
-                    NO CÓDIGO PENAL BRASILEIRO PASSÍVEL DE APURAÇÃO NA FORMA DA LEI.
-                  </label>
-                </div>
-            </dl>
-            <%= form.submit t('.submit'), class: 'btn btn-success' %>
-        <% end %>
-    </div>
-</div>
+<section class="container d-flex flex-column align-items-center justify-content-center">
+  <h3 class="h3"><%= t('.title') %></h3>
+  <div class="card d-flex flex-column align-items-center justify-content-around company_form">
+    <%= form_with model: [:register, @company] do |form| %>
+      <div class="field">
+        <%= form.label :fantasy_name %>
+        <%= form.text_field :fantasy_name %>
+      </div>
+      <div class="field">
+        <%= form.label :cnpj %>
+        <%= form.text_field :cnpj, maxlength: 18, minlength: 18, class: "cpfcnpj" %>
+      </div>
+      <div class="field">
+        <%= form.label :corporate_name %>
+        <%= form.text_field :corporate_name %>
+      </div>      
+      <div class="field">
+        <%= form.label :billing_address %>
+        <%= form.text_field :billing_address %>
+      </div>      
+      <div class="field">
+        <%= form.label :billing_email %>
+        <%= form.text_field :billing_email %>
+      </div>      
+      <div class="field">
+        <%= form.label :company_admin_email %>
+        <%= form.text_field :company_admin_email %>
+      </div>
+      <div class="mb-4 ms-4 text-center form-check form-switch">
+        <%= form.check_box :check_box, class:"form-check-input fs-4", id:"flexSwitchCheckDefault" %>
+        <%= form.label "Declaro que as informações são verdadeiras 
+                        e concordo com termos de uso e política de privacidade", 
+                        class:"form-check-label fs-6", for:"flexSwitchCheckDefault" 
+        %>
+        <label class="form-check-label fs-6" for="flexSwitchCheckDefault"></label>
+      </div>
+      <div class="actions">
+        <%= form.submit t('.submit'), class: 'btn btn-success' %>
+      </div>
+    <% end %>
+  </div>
+</section>

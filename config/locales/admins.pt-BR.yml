@@ -13,7 +13,7 @@ pt-BR:
   admins:
     sessions:
       new:
-        title: 'Área do Administrador'
+        title: 'Logar como Administrador'
         remember_me: 'Lembrar senha'
         submit: 'Entrar'
     registrations:

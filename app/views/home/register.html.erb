@@ -1,19 +1,16 @@
-<div class="container" style="height:100%">
-
-  <div class="row" style="margin-top:10rem">
-    <div class="col">
-        <p class="h5">Sua empresa já é parceira Paynow?</p>
-        <a href="<%= new_client_session_path %>" class="h5">
-            <%= image_tag "services-2.png" %><br>
-            Sim, sou parceiro Paynow 
-        </a>
+<section class="container d-flex align-items-center justify-content-center" >
+  <div class="row d-flex align-items-center justify-content-center w-75 h-50">
+    <div class="col d-flex flex-column align-items-center justify-content-center">
+      <a href="<%= new_client_session_path %>">
+        <%= image_tag "services-2.png" %>
+      </a>
+      <h5>Sou parceiro Paynow</h5> 
     </div>
-    <div class="col">
-        <p class="h5">Quer tornar sua empresa um parceiro Paynow?</p>
-        <a href="<%= register_companies_path %>" class="h5">
-            <%= image_tag "services-1.png" %><br>
-            Sim, quero ser parceiro Paynow
-        </a>
+    <div class="col d-flex flex-column align-items-center justify-content-center">
+      <a href="<%= register_companies_path %>">
+        <%= image_tag "services-1.png" %>
+      </a>
+      <h5>Quero ser parceiro Paynow</h5>
     </div>
   </div>
-</div>
+</section>

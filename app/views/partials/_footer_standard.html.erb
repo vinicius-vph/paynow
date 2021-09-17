@@ -1,0 +1,7 @@
+<div></div>
+<p>Copyright ©2021 All rights reserved | Paynow Brasil</p>
+<% if current_page?('/') %>
+  <%= link_to 'Área do admin', new_admin_session_path, method: :get, class: "btn btn-outline-danger btn-sm d-flex align-items-center justify-content-center" %>
+<% else %>
+  <div></div>   
+<% end %>

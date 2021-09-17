@@ -7,93 +7,41 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'main', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <nav class="navbar navbar-light d-flex justify-content-center" style="height:12vh;background: linear-gradient(600deg,#28a745 1%, #20c997);">
+    <nav class="d-flex flex-row align-items-center justify-content-center">
       <% if admin_signed_in? %>
-        <a href="<%= admin_root_path %>">
-          <h1 style="text-align:center;" class="h1">Área do Administrador</h1>
-        </a>
-        <div class="d-flex justify-content-center align-items-center" style="height:100%;position:absolute;right:0;">
-          <p style="font-size:.7rem;margin:0"><%= current_admin.email %></p>
-          <%= button_to "Sair", destroy_admin_session_path, type: :button, method: :delete, class: "btn btn-danger", style:"font-size:.7rem;margin-left:.5rem" %>
-        </div>
+        <%= render 'partials/nav_admin' %>
       <% elsif client_signed_in? %>
-        <a href="<%= client_root_path %>">
-          <h1 style="text-align:center;" class="h1">Área do Cliente</h1>
-        </a>
-        <div class="d-flex justify-content-center align-items-center" style="height:100%;position:absolute;right:0;">
-          <p style="font-size:.7rem;margin:0"><%= current_client.email %></p>
-          <%= button_to "Sair", destroy_client_session_path, type: :button, method: :delete, class: "btn btn-danger", style:"font-size:.7rem;margin-left:.5rem" %>
-        </div>
+        <%= render 'partials/nav_client' %>
       <% else %>
-        <a href="/">
-          <h1 style="text-align:center;" class="h1">Bem vindo ao PayNow</h1>
-        </a>
-          <% if current_page?('/')  %>
-            <div style="margin-left:10%;position:absolute;right:2%;">
-              <%= link_to 'Login', register_path, method: :get, class: "btn btn-primary me-md-2"%>
-            </div>
-          <% end %>
+        <div></div>
+        <%= render 'partials/nav_standard' %>
       <% end %>
     </nav>
 
-    <main class="container text-center" style="height:83vh">
+    <main>
       <% if notice %>
-        <p class="alert alert-success"><%= notice %></p>
+        <div class="alert alert-success alert-dismissible fade show position-absolute w-100 text-center" role="alert">
+          <%= notice %>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
       <% end %>
       <% if alert %>
-        <p class="alert alert-danger"><%= alert %></p>
+        <div class="alert alert-danger alert-dismissible fade show position-absolute w-100 text-center" role="alert">
+          <%= alert %>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
       <% end %>
       <%= yield %>
     </main>
 
-    <footer class="navbar d-flex justify-content-center" style="height:40px;background: linear-gradient(600deg,#28a745 1%, #20c997);">
-      <p style="text-align:center;margin:0;font-size:.7rem">Copyright ©2021 All rights reserved | Paynow Brasil</p>
-        <% if current_page?('/') %>
-            <%= link_to 'Área do admin', new_admin_session_path, method: :get, class: "btn btn-outline-danger", style: "position: absolute;right:0;font-size:.7rem" %>
-        <% end %>
-    </footer>
-
-      <script>
-        function formatCpfCnpj(inputValue,callback) {
-            input = inputValue;
-            functionCallback = callback;
-            setTimeout('inputFieldMask()', 4);
-        }
-
-        function inputFieldMask() {
-            input.value = functionCallback(input.value);
-        }
-
-        function cpfCnpj(inputChange) {
-
-            inputChange = inputChange.replace(/\D/g,"");
-            
-            if (inputChange.length <= 11) { //CPF
-                
-                inputChange=inputChange.replace(/(\d{3})(\d)/,"$1.$2");
-                
-                inputChange=inputChange.replace(/(\d{3})(\d)/,"$1.$2");
-                
-                inputChange=inputChange.replace(/(\d{3})(\d{1,2})$/,"$1-$2");
-                
-            } else { //CNPJ
-                
-                inputChange=inputChange.replace(/^(\d{2})(\d)/,"$1.$2");
-                
-                inputChange=inputChange.replace(/^(\d{2})\.(\d{3})(\d)/,"$1.$2.$3");
-                
-                inputChange=inputChange.replace(/\.(\d{3})(\d)/,".$1/$2");
-                
-                inputChange=inputChange.replace(/(\d{4})(\d)/,"$1-$2");
-            }
-            
-            return inputChange;
-        }
-      </script>
+    <footer class="d-flex flex-row align-items-center justify-content-between">
+      <%= render 'partials/footer_standard' %>
+    </footer>      
   </body>
 </html>

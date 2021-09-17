@@ -1,0 +1,8 @@
+<% if current_page?('/')  %>
+  <%= link_to 'Login', register_path, method: :get, class: "btn btn-primary me-md-2 btn-lg position-absolute end-0"%>
+<% else %>
+  <%= link_to "Voltar", :back, class: "btn btn-primary ms-4 btn-lg btn-warning position-absolute start-0" %>
+<% end %>
+<a href="/">
+  <h1 class="h1">Bem vindo ao PayNow</h1>
+</a>

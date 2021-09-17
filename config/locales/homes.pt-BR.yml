@@ -2,6 +2,7 @@
 pt-BR:
   home:
     new_register_clients:
+      title: 'Cadastro de Cliente'
       email: 'Email'
       password: 'Senha'
       password_confirmation: 'Confirmação de Senha'
@@ -11,6 +12,7 @@ pt-BR:
       success: 'Seu cadastro foi criado com sucesso faça seu login para continuar !'
       fail: 'Não foi possível criar o cadastro !'
     new_register_companies:
+      title: 'Registrar novo Parceiro'
       fantasy_name: 'Nome Fantasia'
       cnpj: 'CNPJ'
       corporate_name: 'Razão Social'
