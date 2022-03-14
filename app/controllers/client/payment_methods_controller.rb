@@ -1,10 +1,9 @@
 class Client::PaymentMethodsController < Client::ClientController
-    before_action :authenticate_client!
-    # before_action :set_payment_method, only: %i[edit update destroy]
+  before_action :authenticate_client!
+  # before_action :set_payment_method, only: %i[edit update destroy]
 
-    def index
-        @payment_methods = PaymentMethod.where(status: :ativo).sort 
-        render "/client/payment_methods/index", layout: "application"
-    end
-
+  def index
+    @payment_methods = PaymentMethod.where(status: :ativo).sort
+    render '/client/payment_methods/index', layout: 'application'
+  end
 end

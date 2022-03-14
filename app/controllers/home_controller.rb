@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-  before_action :is_signed_in?
+  before_action :signed_in?
 
   def index; end
 
@@ -49,7 +49,7 @@ class HomeController < ApplicationController
     params.require(:client).permit(:email, :password, :company_id)
   end
 
-  def is_signed_in?
+  def signed_in?
     redirect_to '/admin', layout: 'application' if admin_signed_in?
     redirect_to '/client', layout: 'application' if client_signed_in?
   end
