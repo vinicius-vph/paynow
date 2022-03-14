@@ -10,26 +10,26 @@ function inputFieldMask() {
 
 function cpfCnpj(inputChange) {
   inputChange = inputChange.replace(/\D/g,"");
-  
+
   if (inputChange.length <= 11) { //CPF
-      
+
       inputChange=inputChange.replace(/(\d{3})(\d)/,"$1.$2");
-      
+
       inputChange=inputChange.replace(/(\d{3})(\d)/,"$1.$2");
-      
+
       inputChange=inputChange.replace(/(\d{3})(\d{1,2})$/,"$1-$2");
-      
+
   } else { //CNPJ
-      
+
       inputChange=inputChange.replace(/^(\d{2})(\d)/,"$1.$2");
-      
+
       inputChange=inputChange.replace(/^(\d{2})\.(\d{3})(\d)/,"$1.$2.$3");
-      
+
       inputChange=inputChange.replace(/\.(\d{3})(\d)/,".$1/$2");
-      
+
       inputChange=inputChange.replace(/(\d{4})(\d)/,"$1-$2");
   }
-  
+
   return inputChange;
 }
 
