@@ -24,12 +24,12 @@ class Admin::CompaniesController < Admin::AdminController
   end
 
   def update_token
-    smartToken = SecureRandom.base58(20)
+    smart_token = SecureRandom.base58(20)
 
-    if Company.where(company_token: smartToken).any?
+    if Company.where(company_token: smart_token).any?
       redirect_to [:admin, @company], layout: 'application', notice: t('.fail')
     else
-      @company.company_token = smartToken
+      @company.company_token = smart_token
       @company.save
       redirect_to [:admin, @company], layout: 'application', notice: t('.success')
     end
