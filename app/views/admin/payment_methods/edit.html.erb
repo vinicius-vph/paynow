@@ -1,25 +1,21 @@
 <div class="container">
-    <h5 style="margin-top:2rem">Editar meio de pagamento</h5>
-    <%= link_to "Voltar", :back, class: "btn btn-primary btn-sm btn-warning" %>
-    <div class="d-flex flex-column align-items-center justify-content-center card" style="min-width:499px;min-height:380px;margin-top:1rem">
-        <%= form_with model: [:admin, @payment_method] do |form| %>
-            <dl>
-                <dt><%= form.label :name %></dt>
-                <dd><%= form.text_field :name, disabled: true %></dd>
-
-                <dt><%= form.label :payment_fee %></dt>
-                <dd><%= form.number_field :payment_fee, min: 0, max: 100, step: 0.1 %></dd>
-
-                <dt><%= form.label :max_pay_fee %></dt>
-                <dd><%= form.number_field :max_pay_fee, min: 0, max: 100, step: 0.1 %></dd>
-               
-                <dt><%= form.label :payment_type %></dt>
-                <dd><%= form.text_field :payment_type, disabled: true %></dd>
-
-                <dt><%= form.label :status %></dt>
-                <dd><%= form.select :status, [['Ativo', :ativo], ['Inativo', :inativo]] %></dd>
-            </dl>
-            <%= form.submit t('.submit'), class: 'btn btn-success' %>
-        <% end %>
-    </div>
+  <h5 class="mt-3">Editar meio de pagamento</h5>
+  <%= link_to "Voltar", root_path, class: "btn btn-primary btn-sm btn-warning" %>
+  <div class="d-flex flex-column align-items-center justify-content-center card form-container" >
+    <%= form_with model: [:admin, @payment_method] do |form| %>
+      <dl>
+        <dt><%= form.label :name %></dt>
+        <dd><%= form.text_field :name, disabled: true %></dd>
+        <dt><%= form.label :payment_fee %></dt>
+        <dd><%= form.number_field :payment_fee, min: 0, max: 100, step: 0.1 %></dd>
+        <dt><%= form.label :max_pay_fee %></dt>
+        <dd><%= form.number_field :max_pay_fee, min: 0, max: 100, step: 0.1 %></dd>
+        <dt><%= form.label :payment_type %></dt>
+        <dd><%= form.text_field :payment_type, disabled: true %></dd>
+        <dt><%= form.label :status %></dt>
+        <dd><%= form.select :status, [['Ativo', :ativo], ['Inativo', :inativo]] %></dd>
+      </dl>
+      <%= form.submit t('.submit'), class: 'btn btn-success' %>
+    <% end %>
+  </div>
 </div>

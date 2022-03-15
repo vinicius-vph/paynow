@@ -8,12 +8,12 @@ section .card {
     justify-content: space-between;
     height: 75% !important;
     width: 80% !important;
-    
+
     & > .field {
       height: 25rem;
       margin: .5rem 0;
       label {font-size: 1.5rem;}
-      input[type="email"], 
+      input[type="email"],
       input[type="password"],
       input[type="text"] {
         width: 100%;
@@ -44,6 +44,16 @@ section .company_form {
 div.container {
   height: 87.91vh;
 }
+
+.form-container {
+  width: 50%;
+  padding: 20px 0;
+  margin: 0 auto;
+}
+.btn-edit {
+  width:6.9rem;
+}
+
 @media screen and (min-width: 800px) {
   section .card {
     width: 35% !important;
